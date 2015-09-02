@@ -1,0 +1,3 @@
+"select `name`, `email`, `time_stamp` from demographics d, location l where l.mac_address = d.mac_address and `email` like '%." + selCriteria + "@%' and `time_stamp` between '" + tsBefore + "' and '" + ts + "'"
+
+"select `name`, `gender`, `time_stamp` from demographics d, location l where l.mac_address = d.mac_address and `gender` = '" + selCriteria + "' and `time_stamp` between '" + tsBefore + "' and '" + ts + "'"

@@ -1,0 +1,3 @@
+select d2.name, u2.semanticplace, l2.time_stamp from demographics d2 
+inner join ((select distinct(name) as name from 
+(select d.name as name, l.location_id, semanticplace, max(l.time_stamp) from demographics d, location l, location_lookup u where u.location_id = l.location_id and semanticplace = 'SMUSISL1LOBBY' and l.time_stamp between '2014-03-23 11:01:00' and '2014-03-23 11:15:00' group by d.name, l.location_id) as temp) as temp2), location l2, location_lookup u2 where d2.name = temp2.name and u2.location_id = l2.location_id and l2.time_stamp between '2014-03-23 11:16:00' and '2014-03-23 11:30:00';
